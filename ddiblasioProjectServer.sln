@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ddiblasioProjectServer", "ddiblasioProjectServer\ddiblasioProjectServer.csproj", "{A12524C8-305F-46E8-80F3-87B92530B84A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ddiblasioModel", "ddiblasioModel\ddiblasioModel.csproj", "{0C05A395-072E-44D9-A763-28BE853FACBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A12524C8-305F-46E8-80F3-87B92530B84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A12524C8-305F-46E8-80F3-87B92530B84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A12524C8-305F-46E8-80F3-87B92530B84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A12524C8-305F-46E8-80F3-87B92530B84A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C05A395-072E-44D9-A763-28BE853FACBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C05A395-072E-44D9-A763-28BE853FACBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C05A395-072E-44D9-A763-28BE853FACBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C05A395-072E-44D9-A763-28BE853FACBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
