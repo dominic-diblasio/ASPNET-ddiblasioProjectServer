@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ddiblasioProjectServer", "ddiblasioProjectServer\ddiblasioProjectServer.csproj", "{A12524C8-305F-46E8-80F3-87B92530B84A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0C05A395-072E-44D9-A763-28BE853FACBC} = {0C05A395-072E-44D9-A763-28BE853FACBC}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ddiblasioModel", "ddiblasioModel\ddiblasioModel.csproj", "{0C05A395-072E-44D9-A763-28BE853FACBC}"
 EndProject
