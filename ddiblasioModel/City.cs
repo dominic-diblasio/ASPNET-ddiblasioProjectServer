@@ -17,6 +17,9 @@ public partial class City
     [Unicode(false)]
     public string Name { get; set; } = null!;
 
+    public decimal Lat { get; set; }
+    public decimal Lon { get; set; }
+
     public int Population { get; set; }
 
     [Column("CountryID")]
