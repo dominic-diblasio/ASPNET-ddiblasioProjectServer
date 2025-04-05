@@ -1,6 +1,9 @@
 using ddiblasioModel;
+using ddiblasioProjectServer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +16,37 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<WorldCitiesSourceContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+// Adding authentication tabs for our framework using JwtBearer Defaults
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+// And add the corresponding options for JwtBearer
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new()
+    {
+        RequireAudience = true,
+        RequireExpirationTime = true,
+        ValidateAudience = true,
+        ValidateIssuer = true,
+        ValidateIssuerSigningKey = true, // Crucial, otherwise password isn't checked.
+
+        ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+        ValidAudience = builder.Configuration["JwtSettings:Audience"],
+        // Temporarily generate a SymmetricSecurityKey with string type encoding
+        IssuerSigningKey = new SymmetricSecurityKey(
+            System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecurityKey"]))
+        ?? throw new InvalidOperationException()
+    };
+});
+
 builder.Services.AddIdentity<WorldCitiesUser, IdentityRole>()
     .AddEntityFrameworkStores<WorldCitiesSourceContext>();
+
+// Inject our dependencies into the builder to ensure JWT can be handled
+builder.Services.AddScoped<JwtHandler>();
 
 var app = builder.Build();
 
