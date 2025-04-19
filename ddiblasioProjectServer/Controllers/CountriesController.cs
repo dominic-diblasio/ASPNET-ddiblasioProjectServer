@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ddiblasioModel;
 using ddiblasioProjectServer.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ddiblasioProjectServer.Controllers
 {
@@ -29,6 +30,7 @@ namespace ddiblasioProjectServer.Controllers
         }
 
         // GET: api/Countries/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Country>> GetCountry(int id)
         {
@@ -42,6 +44,7 @@ namespace ddiblasioProjectServer.Controllers
             return country;
         }
 
+        [Authorize]
         [HttpGet("GetPopulation/{id}")]
         public async Task<ActionResult<CountryPopulation>> GetCountryPopulation(int id)
         {
